@@ -509,6 +509,7 @@ button.secondary {
 
 .action-row button {
   min-width: 92px;
+  white-space: nowrap;
 }
 
 .tax-button {

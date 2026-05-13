@@ -770,8 +770,14 @@ function App() {
           </div>
 
           <div className="action-row">
-            <button type="button" className="tax-button" onClick={applyDadTax}>
-              🧾 Tax
+            <button
+              type="button"
+              className="tax-button"
+              onClick={applyDadTax}
+              aria-label="Dad Tax: subtract 30 percent of your score"
+              title="Dad Tax: -30% score"
+            >
+              🧾 Dad Tax -30%
             </button>
             <button type="button" className="secondary" onClick={() => finishGame('YOU RETIRED WITH DIGNITY-ish')}>
               End Run

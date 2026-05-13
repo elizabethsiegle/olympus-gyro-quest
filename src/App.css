@@ -1,0 +1,418 @@
+/* 8-BIT RETRO FONT */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --primary-color: #FFD700;
+  --secondary-color: #FF6B6B;
+  --accent-color: #4ECDC4;
+  --background: #1a1a2e;
+  --text-color: #ffffff;
+  --border-color: #FFD700;
+  --lego-red: #E63946;
+  --lego-yellow: #FFD60A;
+  --lego-blue: #457B9D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', monospace;
+  background-color: var(--background);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* ===== TITLE SCREEN ===== */
+.title-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  text-align: center;
+  max-width: 600px;
+  animation: pixelflicker 0.15s infinite;
+}
+
+@keyframes pixelflicker {
+  0%, 100% { opacity: 0.95; }
+  50% { opacity: 0.85; }
+}
+
+.retro-title {
+  font-size: 2.5rem;
+  color: var(--lego-yellow);
+  text-shadow: 
+    3px 3px 0px var(--lego-red),
+    6px 6px 0px var(--lego-blue);
+  letter-spacing: 2px;
+  animation: bounce 0.5s infinite alternate;
+  margin: 0;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+.pixel-art {
+  font-size: 2.5rem;
+  font-family: monospace;
+  margin: 1rem 0;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border: 4px solid var(--lego-yellow);
+  background-color: rgba(26, 26, 46, 0.9);
+  box-shadow: 
+    inset 0 0 10px rgba(255,215,0,0.3),
+    0 0 20px rgba(255,215,0,0.5);
+}
+
+.login-box label {
+  font-size: 0.8rem;
+  color: var(--lego-yellow);
+  text-shadow: 2px 2px 0px var(--lego-red);
+}
+
+.retro-input {
+  padding: 0.8rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  background-color: #0a0a0a;
+  color: var(--lego-yellow);
+  border: 3px solid var(--lego-yellow);
+  text-transform: uppercase;
+  outline: none;
+}
+
+.retro-input::placeholder {
+  color: rgba(255, 215, 0, 0.5);
+}
+
+.retro-input:focus {
+  box-shadow: inset 0 0 10px rgba(255,215,0,0.3);
+  border-color: var(--secondary-color);
+}
+
+.retro-button {
+  padding: 1rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  background: linear-gradient(135deg, var(--lego-yellow), #FFE66D);
+  color: #000;
+  border: 4px solid var(--lego-yellow);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.1s;
+  text-transform: uppercase;
+}
+
+.retro-button:hover {
+  background: linear-gradient(135deg, var(--secondary-color), #FF8787);
+  color: #fff;
+  border-color: var(--secondary-color);
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 10px rgba(255, 107, 107, 0.5);
+}
+
+.scoreboard {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 3px solid var(--accent-color);
+  background-color: rgba(26, 26, 46, 0.8);
+  max-width: 400px;
+}
+
+.scoreboard h2,
+.final-scoreboard h2 {
+  font-size: 1rem;
+  color: var(--accent-color);
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 0px var(--lego-red);
+}
+
+.scoreboard table,
+.final-scoreboard table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.6rem;
+}
+
+.scoreboard td,
+.final-scoreboard td {
+  padding: 0.5rem;
+  border-bottom: 2px solid var(--accent-color);
+  text-align: right;
+}
+
+.scoreboard td:first-child,
+.final-scoreboard td:first-child {
+  text-align: left;
+  color: var(--lego-yellow);
+}
+
+.scoreboard tr:nth-child(1),
+.final-scoreboard tr:nth-child(1) {
+  color: var(--lego-yellow);
+  text-shadow: 0 0 10px var(--lego-yellow);
+}
+
+.final-scoreboard tr.highlight {
+  background-color: rgba(230, 57, 70, 0.3);
+  border-left: 3px solid var(--secondary-color);
+}
+
+/* ===== GAME OVER SCREEN ===== */
+.game-over-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  text-align: center;
+  animation: pixelflicker 0.15s infinite;
+}
+
+.game-over-screen h1 {
+  font-size: 3rem;
+  color: var(--secondary-color);
+  text-shadow: 3px 3px 0px var(--lego-blue);
+  margin: 0;
+  animation: pulse 0.6s infinite;
+}
+
+.final-score {
+  background: linear-gradient(135deg, var(--lego-yellow), #FFE66D);
+  padding: 2rem;
+  border: 4px solid var(--lego-yellow);
+  box-shadow: 0 0 30px rgba(255,215,0,0.5);
+}
+
+.score-label {
+  font-size: 0.8rem;
+  color: #000;
+  margin: 0 0 0.5rem 0;
+}
+
+.score-display {
+  font-size: 2.5rem;
+  color: #000;
+  margin: 0;
+}
+
+.final-scoreboard {
+  padding: 1.5rem;
+  border: 3px solid var(--accent-color);
+  background-color: rgba(26, 26, 46, 0.8);
+  max-width: 500px;
+}
+
+/* ===== GAME BOARD ===== */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 900px;
+  max-height: 700px;
+  background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 50%, #16213e 100%);
+  border: 8px solid;
+  border-image: linear-gradient(45deg, var(--lego-yellow), var(--secondary-color)) 1;
+  box-shadow: 
+    inset 0 0 30px rgba(255,215,0,0.2),
+    0 0 30px rgba(255,215,0,0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom: 3px solid var(--lego-yellow);
+  font-size: 0.6rem;
+  gap: 1rem;
+}
+
+.player-name {
+  color: var(--lego-blue);
+  text-shadow: 2px 2px 0px var(--lego-yellow);
+}
+
+.header .score-display {
+  color: var(--lego-yellow);
+  text-shadow: 2px 2px 0px var(--secondary-color);
+}
+
+.health-display {
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 0px var(--lego-blue);
+  font-size: 1.2rem;
+}
+
+.game-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, var(--secondary-color), #FF8787);
+  padding: 2rem 3rem;
+  border: 4px solid var(--lego-yellow);
+  font-size: 0.7rem;
+  color: var(--text-color);
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+  z-index: 1000;
+  animation: messagepop 0.3s ease-out;
+  pointer-events: none;
+}
+
+@keyframes messagepop {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.game-board {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.1) 100%);
+}
+
+/* ===== GAME ELEMENTS ===== */
+.player {
+  position: absolute;
+  bottom: 2%;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.05s;
+  filter: drop-shadow(0 0 10px rgba(255,215,0,0.8));
+  user-select: none;
+  animation: playerpulse 0.3s ease-out;
+}
+
+@keyframes playerpulse {
+  0% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.ingredient {
+  position: absolute;
+  font-size: 2.5rem;
+  user-select: none;
+  filter: drop-shadow(0 0 8px rgba(78,205,196,0.6));
+  animation: ingredientfall 0.05s linear;
+}
+
+@keyframes ingredientfall {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.hazard {
+  position: absolute;
+  font-size: 2.5rem;
+  user-select: none;
+  filter: drop-shadow(0 0 15px rgba(255,107,107,0.8));
+  animation: hazardblink 0.4s ease-in-out infinite;
+}
+
+@keyframes hazardblink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ===== GYRO PROGRESS ===== */
+.gyro-progress {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-top: 3px solid var(--lego-yellow);
+  border-bottom: 3px solid var(--lego-yellow);
+  text-align: center;
+  font-size: 0.6rem;
+}
+
+.gyro-progress p {
+  margin: 0.3rem 0;
+  color: var(--accent-color);
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.progress-bar span {
+  color: var(--lego-blue);
+  text-shadow: 1px 1px 0px var(--lego-yellow);
+  transition: all 0.2s;
+}
+
+.progress-bar span.filled {
+  color: var(--lego-yellow);
+  text-shadow: 0 0 10px var(--lego-yellow);
+  font-weight: bold;
+}
+
+.complete {
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px var(--secondary-color);
+  animation: pulse 0.6s infinite;
+}
+
+/* ===== CONTROLS ===== */
+.controls {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top: 3px solid var(--lego-yellow);
+  font-size: 0.5rem;
+  text-align: center;
+}
+
+.controls p {
+  margin: 0.3rem 0;
+  color: var(--accent-color);
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .game-container {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  
+  .retro-title {
+    font-size: 1.8rem;
+  }
+  
+  .pixel-art {
+    font-size: 2rem;
+  }
+}
